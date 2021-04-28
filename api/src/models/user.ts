@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema<UserDocument>(
             name: String,
             gender: String,
             location: String,
-            website: String,
             picture: String
         }
     },
