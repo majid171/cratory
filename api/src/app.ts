@@ -1,10 +1,13 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import passport from "passport";
 
 // Configs
 import { connectMongoDB } from "./config/mongoose";
 import * as passportConfig from "./config/passport";
+
+// Controllers
+import * as userController from "./controllers/user";
 
 dotenv.config();
 
@@ -21,11 +24,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
 
-app.get('/google', passport.authenticate('google', { scope: ['openid', 'profile', 'email'] }));
-app.get('/google/callback', passport.authenticate('google'));
+// Primary routes
+app.get("/logout", userController.logout);
 
-app.get("/", (req, res) => {
-    res.send("OK");
-})
+// Google OAuth login
+app.get("/google", passport.authenticate("google", { scope: ["openid", "profile", "email"] }));
+app.get(
+    "/google/callback",
+    passport.authenticate("google", {
+        successRedirect: `${process.env.FRONTEND_URL as string}`,
+        failureRedirect: `${process.env.FRONTEND_URL as string}/login`,
+    })
+);
 
 export default app;

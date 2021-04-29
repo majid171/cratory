@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 export type UserDocument = mongoose.Document & {
     email: string;
 
+    google: string;
+
     profile: {
         name: string;
         gender: string;
@@ -12,17 +14,17 @@ export type UserDocument = mongoose.Document & {
     };
 };
 
-const userSchema = new mongoose.Schema<UserDocument>(
-    {
-        email: { type: String, unique: true },
-    
-        profile: {
-            name: String,
-            gender: String,
-            location: String,
-            picture: String
-        }
+const userSchema = new mongoose.Schema<UserDocument>({
+    email: { type: String, unique: true },
+
+    google: String,
+
+    profile: {
+        name: String,
+        gender: String,
+        location: String,
+        picture: String,
     },
-);
+});
 
 export const User = mongoose.model<UserDocument>("User", userSchema);

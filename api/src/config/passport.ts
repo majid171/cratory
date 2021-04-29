@@ -16,20 +16,30 @@ export const configPassport = () => {
     });
 
     passport.use(
-        new GoogleStrategy({
-            clientID: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-            callbackURL: '/google/callback',
-            passReqToCallback: true
-        }, (req: any, accessToken: any, refreshToken: any, profile: any, done: any) => {
-            console.log(profile);
-        })
+        new GoogleStrategy(
+            {
+                clientID: process.env.GOOGLE_CLIENT_ID as string,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+                callbackURL: `${process.env.API_URL as string}/google/callback`,
+            },
+            async (accessToken: any, refreshToken: any, profile: any, done: any) => {
+                let user = await User.findOne({ google: profile.id });
+
+                if (!user) {
+                    user = await new User({
+                        email: profile.email,
+                        google: profile.id,
+                    }).save();
+                }
+                done(null, user);
+            }
+        )
     );
-}
+};
 
 export const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
     if (req.isAuthenticated()) {
         return next();
     }
-    // res.redirect("/login");
+    res.redirect(`${process.env.FRONTEND_URL as string}/login`);
 };
