@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private readonly _auth: AuthService) { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -18,5 +18,4 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     this._auth.login();
   }
-
 }

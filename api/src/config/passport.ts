@@ -20,7 +20,7 @@ export const configPassport = () => {
             {
                 clientID: process.env.GOOGLE_CLIENT_ID as string,
                 clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-                callbackURL: `${process.env.API_URL as string}/google/callback`,
+                callbackURL: `${process.env.API_URL as string}/auth/google/callback`,
             },
             async (accessToken: any, refreshToken: any, profile: any, done: any) => {
                 let user = await User.findOne({ google: profile.id });
@@ -31,6 +31,7 @@ export const configPassport = () => {
                         google: profile.id,
                     }).save();
                 }
+
                 done(null, user);
             }
         )
