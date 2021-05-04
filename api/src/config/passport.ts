@@ -1,10 +1,13 @@
-import passportGoogle from "passport-google-oauth2";
 import passport from "passport";
+import passportGoogle from "passport-google-oauth2";
+import passportFacebook from "passport-facebook";
+
 import { User, UserDocument } from "../models/user";
 import { NativeError } from "mongoose";
 import { Request, Response, NextFunction } from "express";
 
 const GoogleStrategy = passportGoogle.Strategy;
+const FacebookStrategy = passportFacebook.Strategy;
 
 export const configPassport = () => {
     passport.serializeUser<any, any>((req, user, done) => {
@@ -33,6 +36,20 @@ export const configPassport = () => {
                 }
 
                 done(null, user);
+            }
+        )
+    );
+
+    passport.use(
+        new FacebookStrategy(
+            {
+                clientID: `${process.env.FACEBOOK_CLIENT_ID as string}`,
+                clientSecret: `${process.env.FACEBOOK_CLIENT_SECRET as string}`,
+                callbackURL: `${process.env.API_URL}/auth/facebook/callback`
+            },
+            async (accessToken: any, refreshToken: any, profile: any, done: any) => {
+                console.log(profile);
+                done(null, null);
             }
         )
     );

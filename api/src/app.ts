@@ -57,4 +57,13 @@ app.get(
     })
 );
 
+// Facebook OAuth login
+app.get("/auth/facebook", passport.authenticate("facebook", { scope: ["email", "public_profile"] }));
+app.get(
+    "/auth/facebook/callback",
+    passport.authenticate("facebook", {
+        successRedirect: `${process.env.FRONTEND_URL as string}`,
+        failureRedirect: `${process.env.FRONTEND_URL as string}/login`,
+    }));
+    
 export default app;

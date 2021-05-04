@@ -11,8 +11,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(): void {
+  loginWithGoogle(): void {
     window.location.href = `${this.endPoint}/google`;
+  }
+
+  loginWithFacebook(): void {
+    window.location.href = `${this.endPoint}/facebook`;
   }
 
   logout(): Observable<any> {
