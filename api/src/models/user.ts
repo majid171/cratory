@@ -4,6 +4,7 @@ export type UserDocument = mongoose.Document & {
     email: string;
 
     google: string;
+    facebook: string;
 
     profile: {
         name: string;
@@ -18,6 +19,7 @@ const userSchema = new mongoose.Schema<UserDocument>({
     email: { type: String, unique: true },
 
     google: String,
+    facebook: String,
 
     profile: {
         name: String,
