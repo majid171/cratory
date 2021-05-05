@@ -85,7 +85,8 @@ export const configPassport = () => {
                 clientID: `${process.env.FACEBOOK_CLIENT_ID as string}`,
                 clientSecret: `${process.env.FACEBOOK_CLIENT_SECRET as string}`,
                 callbackURL: `${process.env.API_URL}/auth/facebook/callback`,
-                passReqToCallback: true
+                passReqToCallback: true,
+                profileFields: ['id', 'emails', 'name']
             },
             async (req: any, accessToken: any, refreshToken: any, profile: any, done: any) => {
                 if (req.user) {

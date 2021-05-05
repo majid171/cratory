@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -9,9 +10,12 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _auth: AuthService) { }
+  constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit(): void {
+    if(this._auth.isAuthenticated()){
+      this._router.navigate(['/']);
+    }
   }
 
   loginWithGoogle(e): void {
