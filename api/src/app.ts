@@ -45,7 +45,8 @@ app.use(
 );
 
 // Primary routes
-app.get("/auth/logout", userController.logout);
+app.get("/auth/logout", passportConfig.isAuthenticated, userController.logout);
+app.get("/auth/check", passportConfig.isAuthenticated, userController.checkIfAuth);
 
 // Google OAuth login
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid", "profile", "email"] }));
@@ -64,6 +65,7 @@ app.get(
     passport.authenticate("facebook", {
         successRedirect: `${process.env.FRONTEND_URL as string}`,
         failureRedirect: `${process.env.FRONTEND_URL as string}/login`,
-    }));
-    
+    })
+);
+
 export default app;

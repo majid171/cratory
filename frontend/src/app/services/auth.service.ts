@@ -31,4 +31,16 @@ export class AuthService {
       withCredentials: true
     });
   }
+
+  isAuthenticated(): Observable<any>{
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      "Access-Control-Allow-Origin": "true"
+    });
+
+    return this.http.get<any>(`${this.endPoint}/check`, {
+      headers: headers,
+      withCredentials: true
+    });
+  }
 }

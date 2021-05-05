@@ -6,3 +6,7 @@ export const logout = (req: Request, res: Response) => {
         res.json("logged out");
     });
 };
+
+export const checkIfAuth = (req: Request, res: Response) => {
+    res.json(true);
+}
