@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.info-container {
+}
+
+.login-card-container {
+    display: flex;
+    width: 25%;
+    height: auto;
+    margin: 50px;
+    border: 1px solid black;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 7px;
+}
+
+.title-container {
+    align-self: flex-start;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.title {
+}
+
+.fields-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    margin: 50px;
+    border: 0;
+    clear: both;
+    display: block;
+    width: 90%;
+    background-color: black;
+    height: 1px;
+}

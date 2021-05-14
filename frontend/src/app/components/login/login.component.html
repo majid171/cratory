@@ -1,2 +1,36 @@
-<button (click)="loginWithGoogle($event)">Login with Google</button>
-<button (click)="loginWithFacebook($event)">Login with Facebook</button>
+<div class="container">
+    <div class="info-container">
+        <h1>Cratory</h1>
+        <p>Welcome to my application!</p>
+    </div>
+    <div class="login-card-container">
+        <div class="title-container">
+            <h1 class="title">Sign in</h1>
+        </div>
+        <div class="form-container">
+            <div class="fields-container">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="button-container">
+                <button mat-raised-button color="primary">Login</button>
+            </div>
+        </div>
+        <hr>
+        <!-- <div class="other-options-container">
+
+        </div> -->
+        <!-- <button mat-raised-button >Login with Google</button>
+        <button mat-raised-button >Login with Facebook</button> -->
+    </div>
+</div>
