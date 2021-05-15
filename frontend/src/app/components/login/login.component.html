@@ -10,27 +10,29 @@
         <div class="form-container">
             <div class="fields-container">
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="input">
                         <mat-label>Email</mat-label>
                         <input matInput>
                     </mat-form-field>
                 </div>
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="input">
                         <mat-label>Password</mat-label>
                         <input matInput type="password">
                     </mat-form-field>
                 </div>
             </div>
-            <div class="button-container">
-                <button mat-raised-button color="primary">Login</button>
+            <div class="login-button-container">
+                <app-button buttonText="Sign in" type="primary" buttonWidth="long"></app-button>
             </div>
         </div>
         <hr>
-        <!-- <div class="other-options-container">
+        <div class="other-options-container">
+            <app-button buttonText="Sign in with Google" [handler]="loginWithGoogle" type="o-auth" buttonWidth="long">
+            </app-button>
 
-        </div> -->
-        <!-- <button mat-raised-button >Login with Google</button>
-        <button mat-raised-button >Login with Facebook</button> -->
+            <app-button buttonText="Sign in with Facebook" [handler]="loginWithFacebook" type="o-auth" buttonWidth="long">
+            </app-button>
+        </div>
     </div>
 </div>

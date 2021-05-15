@@ -36,10 +36,23 @@ $cratory-theme: mat-light-theme((
 /* colour themes */
 $white: #FFFFFF;
 $black: #11151C;
-$blue: #212D40;
-$charcoal: #364156;
-$tuscan-red: #7D4E57;
-$copper-red: #D66853;
+$blue: #1871c9;
+$dark-blue: #3D5A80;
+$pale: #98C1D9;
+$cyan: #E0FBFC;
+$sienna: #EE6C4D;
+$gunmetal: #293241;
+$text-colour: #6b6b6b;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: $text-colour;}
+
+hr {
+  margin: 25px;
+  border: 0;
+  clear: both;
+  display: block;
+  width: 90%;
+  background-color: black;
+  height: 1px;
+}

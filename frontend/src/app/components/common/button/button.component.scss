@@ -1,0 +1,41 @@
+@import "../../../../styles.scss";
+
+.button{
+    box-shadow: none;
+    height: 45px;
+    border-radius: 50px;
+    transition: 0.2s;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    margin: 10px;
+    color: $text-colour;
+}
+
+.primary{
+    background-color: $blue;
+    color: $white;
+    border: 1px solid black;
+}
+
+.primary:hover{
+    background-color: $gunmetal;
+}
+
+.long{
+    width: 250px;
+}
+
+.short{
+    width: 100px;
+}
+
+.o-auth{
+    background-color: $white;
+    border: 2px solid $blue;
+}
+ 
+.o-auth:hover{
+    border: 2px solid $gunmetal;
+}

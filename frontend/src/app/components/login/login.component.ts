@@ -13,18 +13,16 @@ export class LoginComponent implements OnInit {
   constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit(): void {
-    if(this._auth.isAuthenticated()){
+    if (this._auth.isAuthenticated()) {
       this._router.navigate(['/']);
     }
   }
 
-  loginWithGoogle(e): void {
-    e.preventDefault();
+  loginWithGoogle(): void {
     this._auth.loginWithGoogle();
   }
 
-  loginWithFacebook(e): void {
-    e.preventDefault();
+  loginWithFacebook(): void {
     this._auth.loginWithFacebook();
   }
 }
