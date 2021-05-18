@@ -43,9 +43,13 @@ $cyan: #E0FBFC;
 $sienna: #EE6C4D;
 $gunmetal: #293241;
 $text-colour: #6b6b6b;
+$card-border-colour: #AAB8C2;
+
+/* App Variables */
+$app-border-radius: 15px;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: $text-colour;}
+body { margin: 0; font-family: Arial; color: $text-colour; font: Arial;}
 
 hr {
   margin: 25px;
@@ -53,6 +57,26 @@ hr {
   clear: both;
   display: block;
   width: 90%;
-  background-color: black;
+  background-color: #AAB8C2;
   height: 1px;
+}
+
+
+/* Media Queries */
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablets {
+  @media (min-width: 481px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktops {
+  @media (min-width: 769px) {
+    @content;
+  }
 }

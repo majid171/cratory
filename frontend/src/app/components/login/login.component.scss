@@ -4,22 +4,53 @@
     display: flex;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    @include mobile{
+        align-items: center;
+    }
+
+    @include tablets{
+        align-items: center;
+    }
 }
 
 .info-container {
+    margin: 20px;
+    @include mobile{
+        display: none;
+    }
+    @include tablets{
+        display: none;
+    }
 }
 
 .login-card-container {
+    align-self: flex-end;
+    margin-right: 20vw;
     display: flex;
     width: 20vw;
     max-width: 400px;
     min-width: 300px;
-    height: 500px;
-    margin: 50px;
+    height: auto;
     border: 1px solid $text-colour;
     align-items: center;
     flex-direction: column;
-    border-radius: 15px;
+    border-radius: $app-border-radius;
+
+    @include mobile{
+        border: none;
+        width: 100%;
+        height: auto;
+        align-self: center;
+        margin-right: unset;
+    }
+
+    @include tablets{
+        width: 100%;
+        height: auto;
+        align-self: center;
+        margin-right: unset;
+    }
 }
 
 .title-container {
@@ -52,6 +83,14 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
+.sign-up-container{
+    margin-bottom: 3px;
+    font-size: 12px;
+}
 
+a{
+    text-decoration: none;
+}
