@@ -4,31 +4,11 @@
     display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: column;
-    @include mobile{
-        align-items: center;
-        // justify-content: center;
-    }
-
-    @include tablets{
-        align-items: center;
-        // justify-content: center;
-    }
+    align-items: center;
+    justify-content: center;
 }
 
-.info-container {
-    margin: 20px;
-    @include mobile{
-        display: none;
-    }
-    @include tablets{
-        display: none;
-    }
-}
-
-.login-card-container {
-    align-self: flex-end;
-    margin-right: 20vw;
+.card-container {
     display: flex;
     width: 20vw;
     max-width: 400px;
@@ -38,21 +18,6 @@
     align-items: center;
     flex-direction: column;
     border-radius: $app-border-radius;
-
-    @include mobile{
-        border: none;
-        width: 100%;
-        height: auto;
-        align-self: center;
-        margin-right: unset;
-    }
-
-    @include tablets{
-        width: 100%;
-        height: auto;
-        align-self: center;
-        margin-right: unset;
-    }
 }
 
 .title-container {
@@ -67,9 +32,6 @@
     }
 }
 
-.title {
-}
-
 .fields-container {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -82,7 +44,7 @@
     width: 250px;
 }
 
-.login-button-container {
+.button-container {
     display: flex;
     justify-content: center;
 }

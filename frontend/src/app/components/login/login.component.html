@@ -7,36 +7,33 @@
         <div class="title-container">
             <h1 class="title">Sign in</h1>
         </div>
-        <div class="form-container">
+        <form class="form-container" [formGroup]="form">
             <div class="fields-container">
                 <div>
                     <mat-form-field class="input">
                         <mat-label>Email</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="email">
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field class="input">
                         <mat-label>Password</mat-label>
-                        <input matInput type="password">
+                        <input matInput type="password" formControlName="password">
                     </mat-form-field>
                 </div>
             </div>
             <div class="login-button-container">
-                <app-button buttonText="Sign in" type="primary" buttonWidth="long"></app-button>
+                <button class="app-button primary long" (click)="submit()">Sign In</button>
             </div>
-        </div>
+        </form>
         <hr>
         <div class="other-options-container">
-            <app-button buttonText="Sign in with Google" [handler]="loginWithGoogle" type="o-auth" buttonWidth="long">
-            </app-button>
-
-            <app-button buttonText="Sign in with Facebook" [handler]="loginWithFacebook" type="o-auth" buttonWidth="long">
-            </app-button>
+            <button class="app-button o-auth long" (click)="loginWithGoogle()">Sign in with Google</button>
+            <button class="app-button o-auth long" (click)="loginWithFacebook()">Sign in with Facebook</button>
         </div>
         <div class="sign-up-container">
             New to Cratory?
-            <a href="#">Sign up</a>
+            <a href="/signup">Sign up</a>
         </div>
     </div>
 </div>

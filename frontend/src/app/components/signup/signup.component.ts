@@ -1,29 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-
-import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   form: FormGroup;
   showErrorMessage: boolean;
 
-  constructor(private _auth: AuthService, private _router: Router, private _fb: FormBuilder) { }
+  constructor(private _auth: AuthService, private _fb: FormBuilder) { }
 
   ngOnInit(): void {
-    if (this._auth.isAuthenticated()) {
-      this._router.navigate(['/']);
-    }
-
     this.showErrorMessage = false;
 
     this.form = this._fb.group({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
