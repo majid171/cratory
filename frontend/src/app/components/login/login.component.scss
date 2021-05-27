@@ -102,3 +102,10 @@
 a{
     text-decoration: none;
 }
+
+.error-message-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $sienna;
+}

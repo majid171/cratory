@@ -15,7 +15,6 @@ export class SignupComponent implements OnInit {
   constructor(private _auth: AuthService, private _fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.showErrorMessage = false;
 
     this.form = this._fb.group({
       firstName: new FormControl('', [Validators.required]),

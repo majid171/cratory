@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
       this._router.navigate(['/']);
     }
 
-    this.showErrorMessage = false;
-
     this.form = this._fb.group({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])

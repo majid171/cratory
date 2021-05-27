@@ -18,6 +18,10 @@
     align-items: center;
     flex-direction: column;
     border-radius: $app-border-radius;
+
+    @include mobile{
+        border: none;
+    }
 }
 
 .title-container {
@@ -63,4 +67,11 @@
 
 a{
     text-decoration: none;
+}
+
+.error-message-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $sienna;
 }

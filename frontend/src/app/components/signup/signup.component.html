@@ -33,6 +33,9 @@
             <div class="button-container">
                 <button class="app-button primary long">Sign Up</button>
             </div>
+            <div class="error-message-container" *ngIf="showErrorMessage">
+                <p>Email already exists</p>
+            </div>
         </form>
         <hr>
         <div class="other-options-container">

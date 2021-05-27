@@ -25,6 +25,9 @@
             <div class="login-button-container">
                 <button class="app-button primary long" (click)="submit()">Sign In</button>
             </div>
+            <div class="error-message-container" *ngIf="showErrorMessage">
+                <p>Username or password incorrect</p>
+            </div>
         </form>
         <hr>
         <div class="other-options-container">
