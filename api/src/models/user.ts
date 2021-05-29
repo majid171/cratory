@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 export type UserDocument = mongoose.Document & {
     email: string;
+    password: string;
 
     google: string;
     facebook: string;
@@ -17,6 +18,7 @@ export type UserDocument = mongoose.Document & {
 
 const userSchema = new mongoose.Schema<UserDocument>({
     email: { type: String, unique: true },
+    password: String,
 
     google: String,
     facebook: String,

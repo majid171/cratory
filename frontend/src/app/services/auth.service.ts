@@ -19,8 +19,20 @@ export class AuthService {
     window.location.href = `${this.endPoint}/facebook`;
   }
 
-  logout(): Observable<any> {
+  login(creds: string): Observable<any>{
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      "Access-Control-Allow-Origin": "true"
+    });
 
+    return this.http.post<any>(`${this.endPoint}/signin`, creds, {
+      headers: headers,
+      observe: "response",
+      withCredentials: true
+    });
+  }
+
+  logout(): Observable<any> {
     const headers: HttpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       "Access-Control-Allow-Origin": "true"
@@ -28,7 +40,8 @@ export class AuthService {
 
     return this.http.get<any>(`${this.endPoint}/logout`, {
       headers: headers,
-      withCredentials: true
+      withCredentials: true,
+      observe: "response"
     });
   }
 
@@ -40,7 +53,8 @@ export class AuthService {
 
     return this.http.get<any>(`${this.endPoint}/check`, {
       headers: headers,
-      withCredentials: true
+      withCredentials: true,
+      observe: "response"
     });
   }
 }

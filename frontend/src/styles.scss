@@ -44,6 +44,8 @@ $sienna: #EE6C4D;
 $gunmetal: #293241;
 $text-colour: #6b6b6b;
 $card-border-colour: #AAB8C2;
+$background-colour: #f2f5f7;
+$error-red: #f44336;
 
 /* App Variables */
 $app-border-radius: 15px;
@@ -52,7 +54,6 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Arial; color: $text-colour; font: Arial;}
 
 hr {
-  // margin: 25px;
   border: 0;
   clear: both;
   display: block;

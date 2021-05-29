@@ -21,7 +21,15 @@ export class HomeComponent implements OnInit {
     e.preventDefault();
 
     this._auth.logout().subscribe((res) => {
-      this._router.navigate(['/login']);
+      this._router.navigate(['/signin']);
+    }), (err) => {
+      console.log(err);
+    };
+  }
+
+  temp(): void {
+    this._auth.isAuthenticated().subscribe((res) => {
+      console.log(res);
     }), (err) => {
       console.log(err);
     };

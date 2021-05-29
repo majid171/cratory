@@ -2,10 +2,14 @@
     <div class="info-container">
         <h1>Cratory</h1>
         <p>Welcome to my application!</p>
+        <button (click)="temp()">check</button>
     </div>
     <div class="login-card-container">
         <div class="title-container">
             <h1 class="title">Sign in</h1>
+        </div>
+        <div class="error-message-container" *ngIf="showErrorMessage">
+            <p>Username or password incorrect</p>
         </div>
         <form class="form-container" [formGroup]="form">
             <div class="fields-container">
@@ -13,20 +17,26 @@
                     <mat-form-field class="input">
                         <mat-label>Email</mat-label>
                         <input matInput formControlName="email">
+                        <mat-error *ngIf="email.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field class="input">
                         <mat-label>Password</mat-label>
                         <input matInput type="password" formControlName="password">
+                        <mat-error *ngIf="password.hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
                     </mat-form-field>
                 </div>
             </div>
             <div class="login-button-container">
-                <button class="app-button primary long" (click)="submit()">Sign In</button>
-            </div>
-            <div class="error-message-container" *ngIf="showErrorMessage">
-                <p>Username or password incorrect</p>
+                <button class="app-button primary long" (click)="login()">Sign In</button>
             </div>
         </form>
         <hr>

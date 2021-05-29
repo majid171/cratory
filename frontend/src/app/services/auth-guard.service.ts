@@ -13,7 +13,13 @@ export class AuthGuardService {
     return new Promise((resolve, reject) => {
 
       this._auth.isAuthenticated().subscribe((res) => {
-        resolve(true);
+        if(res){
+          resolve(true);
+        }
+        else{
+          this._router.navigate(['/signin']);
+          resolve(false);
+        }
       },
         () => {
           this._router.navigate(['/signin']);

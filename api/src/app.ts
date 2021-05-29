@@ -1,9 +1,10 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import passport from "passport";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import expressSession from "express-session";
+import MongoStore from "connect-mongo";
 
 // Configs
 import { connectMongoDB } from "./config/mongoose";
@@ -22,31 +23,33 @@ passportConfig.configPassport();
 
 app.set("port", PORT);
 
-app.use((req: Request, res: Response, next) => {
-    res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL as string);
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    next();
-});
-app.use(
-    expressSession({
-        secret: process.env.SESSION_SECRET as string,
-        resave: false,
-        saveUninitialized: true,
-    })
-);
-app.use(express.json());
-app.use(cookieParser());
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(
     cors({
         origin: process.env.FRONTEND_URL as string,
+        allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"],
+        credentials: true,
     })
 );
+
+app.use(express.json());
+app.use(cookieParser(`${process.env.SESSION_SECRET as string}`));
+app.use(
+    expressSession({
+        secret: process.env.SESSION_SECRET as string,
+        resave: true,
+        saveUninitialized: true,
+        store: new MongoStore({
+            mongoUrl: process.env.MONGO_URL as string,
+        }),
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Primary routes
 app.get("/auth/logout", passportConfig.isAuthenticated, userController.logout);
 app.get("/auth/check", passportConfig.isAuthenticated, userController.checkIfAuth);
+app.post("/auth/signin", userController.signin);
 
 // Google OAuth login
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid", "profile", "email"] }));
@@ -54,7 +57,7 @@ app.get(
     "/auth/google/callback",
     passport.authenticate("google", {
         successRedirect: `${process.env.FRONTEND_URL as string}`,
-        failureRedirect: `${process.env.FRONTEND_URL as string}/login`,
+        failureRedirect: `${process.env.FRONTEND_URL as string}/signin`,
     })
 );
 
@@ -64,7 +67,7 @@ app.get(
     "/auth/facebook/callback",
     passport.authenticate("facebook", {
         successRedirect: `${process.env.FRONTEND_URL as string}`,
-        failureRedirect: `${process.env.FRONTEND_URL as string}/login`,
+        failureRedirect: `${process.env.FRONTEND_URL as string}/signin`,
     })
 );
 
