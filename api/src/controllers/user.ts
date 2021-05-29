@@ -11,7 +11,7 @@ export const signin = async (req: Request, res: Response, next: NextFunction) =>
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        return res.redirect(`${process.env.FRONTEND_URL}/signin`);
+        return res.sendStatus(401);
     }
 
     passport.authenticate("local", (err: Error, user: UserDocument) => {
@@ -19,7 +19,7 @@ export const signin = async (req: Request, res: Response, next: NextFunction) =>
             return next(err);
         }
         if (!user) {
-            return res.sendStatus(400);
+            return res.sendStatus(401);
         }
 
         req.login(user, (err) => {

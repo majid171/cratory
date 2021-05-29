@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
 
     this._auth.signOut().subscribe((res) => {
       this._router.navigate(['/signin']);
-    }), (err) => {
+    }, (err) => {
       console.log(err);
-    };
+    });
   }
 }

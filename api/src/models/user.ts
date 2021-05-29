@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt-nodejs";
-import { NextFunction } from "express";
 
 type comparePasswordFunction = (storedPassword: string, candidatePassword: string, cb: (err: any, isMatch: any) => void) => void;
 

@@ -30,11 +30,10 @@ export const configPassport = () => {
                     return done(undefined, false, { message: `Email ${email} not found.` });
                 }
                 user.comparePassword(user.password, password, (err: Error, isMatch: boolean) => {
-                    if (err) { return done(err); }
-                    if (isMatch) {
-                        return done(undefined, user);
+                    if (err) {
+                        return done(err);
                     }
-                    return done(undefined, false, { message: "Invalid email or password." });
+                    return isMatch ? done(undefined, user) : done(undefined, false, { message: "Invalid email or password." });
                 });
             });
         })

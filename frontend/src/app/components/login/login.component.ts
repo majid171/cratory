@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  showErrorMessage: boolean;
+  showErrorMessage: boolean = false;
 
   constructor(private _auth: AuthService, private _router: Router, private _fb: FormBuilder) { }
 
@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
 
     this._auth.signIn(jsonField).subscribe((res) => {
       this._router.navigate(['/'])
-    }), (err) => {
-      console.log(err);
-    };
+    }, () => {
+      this.showErrorMessage = true;
+    });
   }
 
   signInWithGoogle(): void {

@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupComponent implements OnInit {
 
   form: FormGroup;
-  showErrorMessage: boolean;
+  showErrorMessage: boolean = false;
 
   constructor(private _auth: AuthService, private _fb: FormBuilder, private _router: Router) { }
 
@@ -26,17 +26,17 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(): void {
-    
-    if(!this.form.valid) return;
-    
+
+    if (!this.form.valid) return;
+
     const stringField = JSON.stringify(this.form.value);
     const jsonField = JSON.parse(stringField);
 
     this._auth.signUp(jsonField).subscribe((res) => {
       this._router.navigate(['/'])
-    }), (err) => {
-      console.log(err);
-    };
+    }, (err) => {
+      this.showErrorMessage = true
+    });
   }
 
   signInWithGoogle(): void {
