@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt-nodejs";
 
-type comparePasswordFunction = (storedPassword: string, candidatePassword: string, cb: (err: any, isMatch: any) => void) => void;
+type comparePasswordFunction = (
+    storedPassword: string,
+    candidatePassword: string,
+    cb: (err: any, isMatch: any) => void
+) => void;
 
 export type UserDocument = mongoose.Document & {
     email: string;
@@ -38,11 +42,17 @@ const userSchema = new mongoose.Schema<UserDocument>({
 
 userSchema.pre("save", function save(next) {
     const user = this as UserDocument;
-    if (!user.isModified("password")) { return next(); }
+    if (!user.isModified("password")) {
+        return next();
+    }
     bcrypt.genSalt(10, (err, salt) => {
-        if (err) { return next(err); }
+        if (err) {
+            return next(err);
+        }
         bcrypt.hash(user.password, salt, null, (err: mongoose.Error, hash) => {
-            if (err) { return next(err); }
+            if (err) {
+                return next(err);
+            }
             user.password = hash;
             next();
         });

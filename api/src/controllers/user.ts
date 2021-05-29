@@ -44,22 +44,26 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
     }
 
     const name: String = `${req.body.firstName as String} ${req.body.lastName as String}`;
-    
+
     const user = new User({
         email: req.body.email,
         password: req.body.password,
         profile: {
-            name: name
-        }
+            name: name,
+        },
     });
 
     User.findOne({ email: req.body.email }, (err: NativeError, existingUser: UserDocument) => {
-        if (err) { return next(err); }
+        if (err) {
+            return next(err);
+        }
         if (existingUser) {
             return res.redirect(`${process.env.FRONTEND_URL}/signup`);
         }
         user.save((err) => {
-            if (err) { return next(err); }
+            if (err) {
+                return next(err);
+            }
             req.logIn(user, (err) => {
                 if (err) {
                     return next(err);
@@ -68,7 +72,7 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
             });
         });
     });
-}
+};
 
 export const logout = (req: Request, res: Response) => {
     req.session.destroy(() => {

@@ -33,7 +33,9 @@ export const configPassport = () => {
                     if (err) {
                         return done(err);
                     }
-                    return isMatch ? done(undefined, user) : done(undefined, false, { message: "Invalid email or password." });
+                    return isMatch
+                        ? done(undefined, user)
+                        : done(undefined, false, { message: "Invalid email or password." });
                 });
             });
         })
