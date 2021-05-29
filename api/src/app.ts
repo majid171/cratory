@@ -50,6 +50,8 @@ app.use(passport.session());
 app.get("/auth/logout", passportConfig.isAuthenticated, userController.logout);
 app.get("/auth/check", passportConfig.isAuthenticated, userController.checkIfAuth);
 app.post("/auth/signin", userController.signin);
+app.post("/auth/signup", userController.signup);
+
 
 // Google OAuth login
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid", "profile", "email"] }));

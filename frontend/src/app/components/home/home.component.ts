@@ -17,22 +17,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  logout(e): void {
+  signOut(e): void {
     e.preventDefault();
 
-    this._auth.logout().subscribe((res) => {
+    this._auth.signOut().subscribe((res) => {
       this._router.navigate(['/signin']);
     }), (err) => {
       console.log(err);
     };
   }
-
-  temp(): void {
-    this._auth.isAuthenticated().subscribe((res) => {
-      console.log(res);
-    }), (err) => {
-      console.log(err);
-    };
-  }
-
 }

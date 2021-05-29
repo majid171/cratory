@@ -11,15 +11,15 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  loginWithGoogle(): void {
+  signInWithGoogle(): void {
     window.location.href = `${this.endPoint}/google`;
   }
 
-  loginWithFacebook(): void {
+  signInWithFacebook(): void {
     window.location.href = `${this.endPoint}/facebook`;
   }
 
-  login(creds: string): Observable<any>{
+  signIn(creds: string): Observable<any>{
     const headers: HttpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       "Access-Control-Allow-Origin": "true"
@@ -32,7 +32,20 @@ export class AuthService {
     });
   }
 
-  logout(): Observable<any> {
+  signUp(creds: string): Observable<any>{
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
+      "Access-Control-Allow-Origin": "true"
+    });
+
+    return this.http.post<any>(`${this.endPoint}/signup`, creds, {
+      headers: headers,
+      observe: "response",
+      withCredentials: true
+    });
+  }
+
+  signOut(): Observable<any> {
     const headers: HttpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       "Access-Control-Allow-Origin": "true"

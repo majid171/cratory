@@ -2,7 +2,6 @@
     <div class="info-container">
         <h1>Cratory</h1>
         <p>Welcome to my application!</p>
-        <button (click)="temp()">check</button>
     </div>
     <div class="login-card-container">
         <div class="title-container">
@@ -36,13 +35,13 @@
                 </div>
             </div>
             <div class="login-button-container">
-                <button class="app-button primary long" (click)="login()">Sign In</button>
+                <button class="app-button primary long" (click)="signIn()">Sign In</button>
             </div>
         </form>
         <hr>
         <div class="other-options-container">
-            <button class="app-button o-auth long" (click)="loginWithGoogle()">Sign in with Google</button>
-            <button class="app-button o-auth long" (click)="loginWithFacebook()">Sign in with Facebook</button>
+            <button class="app-button o-auth long" (click)="signInWithGoogle()">Sign in with Google</button>
+            <button class="app-button o-auth long" (click)="signInWithFacebook()">Sign in with Facebook</button>
         </div>
         <div class="sign-up-container">
             New to Cratory?

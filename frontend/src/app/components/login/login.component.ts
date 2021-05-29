@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
     }
 
     this.form = this._fb.group({
-      email: new FormControl('majid@gmail.com', [Validators.required, Validators.email]),
-      password: new FormControl('123', [Validators.required])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
     });
   }
 
-  login(): void {
+  signIn(): void {
     if(!this.form.valid){
       return;
     }
@@ -35,31 +35,22 @@ export class LoginComponent implements OnInit {
     const stringField = JSON.stringify(this.form.value);
     const jsonField = JSON.parse(stringField);
 
-    this._auth.login(jsonField).subscribe((res) => {
+    this._auth.signIn(jsonField).subscribe((res) => {
       this._router.navigate(['/'])
-      console.log(res);
     }), (err) => {
       console.log(err);
     };
   }
 
-  loginWithGoogle(): void {
-    this._auth.loginWithGoogle();
+  signInWithGoogle(): void {
+    this._auth.signInWithGoogle();
   }
 
-  loginWithFacebook(): void {
-    this._auth.loginWithFacebook();
+  signInWithFacebook(): void {
+    this._auth.signInWithFacebook();
   }
 
   get email() { return this.form.get('email'); }
 
   get password() { return this.form.get('password'); }
-
-  temp(): void {
-    this._auth.isAuthenticated().subscribe((res) => {
-      console.log(res);
-    }), (err) => {
-      console.log(err);
-    };
-  }
 }
