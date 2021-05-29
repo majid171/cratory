@@ -29,7 +29,13 @@ export const configPassport = () => {
                 if (!user) {
                     return done(undefined, false, { message: `Email ${email} not found.` });
                 }
-                return done(undefined, user);
+                user.comparePassword(user.password, password, (err: Error, isMatch: boolean) => {
+                    if (err) { return done(err); }
+                    if (isMatch) {
+                        return done(undefined, user);
+                    }
+                    return done(undefined, false, { message: "Invalid email or password." });
+                });
             });
         })
     );
