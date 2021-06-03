@@ -6,6 +6,7 @@
     height: 100%;
     justify-content: center;
     background-color: $background-colour;
+    align-items: center;
 }
 
 .card-container {
@@ -13,7 +14,7 @@
     width: 20vw;
     max-width: 400px;
     min-width: 300px;
-    height: auto;
+    height: 90%;
     align-items: center;
     background-color: $white;
     flex-direction: column;
@@ -23,16 +24,14 @@
 
     @include mobile{
         border: none;
-        width: 100%;
-        height: auto;
+        width: 95%;
         margin-right: unset;
         box-shadow: unset;
         justify-content: unset;
     }
 
     @include tablets{
-        width: 100%;
-        height: auto;
+        width: 95%;
         margin-right: unset;
         box-shadow: unset;
         justify-content: unset;
