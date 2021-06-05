@@ -38,7 +38,10 @@
                 <div>
                     <mat-form-field class="input">
                         <mat-label>Password</mat-label>
-                        <input matInput type="password" formControlName="password">
+                        <input matInput [type]="hide? 'password': 'text'" formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
                         <mat-error *ngIf="password.hasError('required')">
                             Password is <strong>required</strong>
                         </mat-error>
@@ -57,7 +60,7 @@
             <button class="app-button o-auth long" (click)="signInWithGoogle()">Sign in with Google</button>
             <button class="app-button o-auth long" (click)="signInWithFacebook()">Sign in with Facebook</button>
         </div>
-        <div class="sign-up-container">
+        <div class="sign-in-container">
             Already have an account?
             <a href="/signin">Sign In</a>
         </div>

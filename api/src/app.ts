@@ -1,10 +1,10 @@
-import express, { NextFunction, Request, Response } from "express";
-import dotenv from "dotenv";
+import express from "express";
 import passport from "passport";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import expressSession from "express-session";
 import MongoStore from "connect-mongo";
+import { SESSION_SECRET, MONGO_URL, API_PORT } from "./utils/secrets";
 
 // Configs
 import { connectMongoDB } from "./config/mongoose";
@@ -13,12 +13,10 @@ import * as passportConfig from "./config/passport";
 // Controllers
 import * as userController from "./controllers/user";
 
-dotenv.config();
-
 const app = express();
-const PORT = process.env.API_PORT || 8080;
+const PORT = API_PORT || 8080;
 
-connectMongoDB(process.env.MONGO_URL as string);
+connectMongoDB(MONGO_URL);
 passportConfig.configPassport();
 
 app.set("port", PORT);
@@ -32,10 +30,10 @@ app.use(
 );
 
 app.use(express.json());
-app.use(cookieParser(`${process.env.SESSION_SECRET as string}`));
+app.use(cookieParser(SESSION_SECRET));
 app.use(
     expressSession({
-        secret: process.env.SESSION_SECRET as string,
+        secret: SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
         store: new MongoStore({

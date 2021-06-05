@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
 
   form: FormGroup;
   showErrorMessage: boolean = false;
+  hide: boolean = true;
 
   constructor(private _auth: AuthService, private _fb: FormBuilder, private _router: Router) { }
 

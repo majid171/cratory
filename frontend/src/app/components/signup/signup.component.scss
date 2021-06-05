@@ -14,13 +14,12 @@
     width: 20vw;
     max-width: 400px;
     min-width: 300px;
-    height: 90%;
+    height: auto;
     align-items: center;
     background-color: $white;
     flex-direction: column;
     border-radius: $app-border-radius;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
-    justify-content: space-between;
 
     @include mobile{
         border: none;
@@ -73,8 +72,8 @@
     align-items: center;
 }
 
-.sign-up-container{
-    margin-bottom: 3px;
+.sign-in-container{
+    margin-bottom: 10px;
     font-size: 12px;
 }
 
