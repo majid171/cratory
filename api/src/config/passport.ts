@@ -63,10 +63,6 @@ export const configPassport = () => {
                                     return done(err);
                                 }
                                 user.google = profile.id;
-                                user.profile.name =
-                                    user.profile.name || `${profile.name.givenName} ${profile.name.familyName}`;
-                                user.profile.gender = user.profile.gender || profile._json.gender;
-                                user.profile.picture = user.profile.picture || profile.picture;
                                 user.save((err) => {
                                     done(err, user);
                                 });
@@ -89,11 +85,6 @@ export const configPassport = () => {
                                 const user: any = new User();
                                 user.email = profile.email;
                                 user.google = profile.id;
-                                user.profile.name = `${profile.name.givenName} ${profile.name.familyName}`;
-                                user.profile.gender = profile._json.gender;
-                                user.profile.location = profile._json.location ? profile._json.location.name : "";
-                                user.profile.picture = profile.picture;
-
                                 user.save((err: Error) => {
                                     done(err, user);
                                 });
@@ -128,12 +119,6 @@ export const configPassport = () => {
                                     return done(err);
                                 }
                                 user.facebook = profile.id;
-                                user.profile.name =
-                                    user.profile.name || `${profile.name.givenName} ${profile.name.familyName}`;
-                                user.profile.gender = user.profile.gender || profile._json.gender;
-                                user.profile.picture =
-                                    user.profile.picture ||
-                                    `https://graph.facebook.com/${profile.id}/picture?type=large`;
                                 user.save((err) => {
                                     done(err, user);
                                 });
@@ -158,10 +143,6 @@ export const configPassport = () => {
                                     const user: any = new User();
                                     user.email = profile._json.email;
                                     user.facebook = profile.id;
-                                    user.profile.name = `${profile.name.givenName} ${profile.name.familyName}`;
-                                    user.profile.gender = profile._json.gender;
-                                    user.profile.location = profile._json.location ? profile._json.location.name : "";
-                                    user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
                                     user.save((err: Error) => {
                                         done(err, user);
                                     });

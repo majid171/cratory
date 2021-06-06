@@ -12,6 +12,7 @@ import * as passportConfig from "./config/passport";
 
 // Controllers
 import * as userController from "./controllers/user";
+import * as serviceController from "./controllers/service";
 
 const app = express();
 const PORT = API_PORT || 8080;
@@ -44,11 +45,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Primary routes
+// Primary auth routes
 app.get("/auth/logout", passportConfig.isAuthenticated, userController.logout);
 app.get("/auth/check", passportConfig.isAuthenticated, userController.checkIfAuth);
 app.post("/auth/signin", userController.signin);
 app.post("/auth/signup", userController.signup);
+
+// Service routes
+app.post("/service", passportConfig.isAuthenticated, serviceController.addService);
+app.delete("/service", passportConfig.isAuthenticated, serviceController.deleteService);
 
 // Google OAuth login
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid", "profile", "email"] }));

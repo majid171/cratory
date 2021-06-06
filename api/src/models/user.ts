@@ -1,5 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, Document, model } from "mongoose";
 import bcrypt from "bcrypt-nodejs";
+import { Address, Name } from "../types";
+import {ServiceDocument} from "./service";
 
 type comparePasswordFunction = (
     storedPassword: string,
@@ -7,37 +9,28 @@ type comparePasswordFunction = (
     cb: (err: any, isMatch: any) => void
 ) => void;
 
-export type UserDocument = mongoose.Document & {
+export type UserDocument = Document & {
+    name: Name;
+    password: string
     email: string;
-    password: string;
-
+    phone: string;
+    address: Address;
     google: string;
     facebook: string;
-
-    profile: {
-        name: string;
-        gender: string;
-        location: string;
-        website: string;
-        picture: string;
-    };
+    services: ServiceDocument[];
 
     comparePassword: comparePasswordFunction;
 };
 
-const userSchema = new mongoose.Schema<UserDocument>({
-    email: { type: String, unique: true },
+const userSchema = new Schema<UserDocument>({
+    name: { type: Schema.Types.Mixed },
     password: String,
-
+    email: { type: String, unique: true },
+    phone: String,
+    address: { type: Schema.Types.Mixed },
     google: String,
     facebook: String,
-
-    profile: {
-        name: String,
-        gender: String,
-        location: String,
-        picture: String,
-    },
+    services: {type: Schema.Types.Array}
 });
 
 userSchema.pre("save", function save(next) {
@@ -67,4 +60,4 @@ const comparePassword: comparePasswordFunction = function (storedPassword, candi
 
 userSchema.methods.comparePassword = comparePassword;
 
-export const User = mongoose.model<UserDocument>("User", userSchema);
+export const User = model<UserDocument>("User", userSchema);
