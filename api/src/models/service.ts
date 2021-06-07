@@ -5,7 +5,7 @@ export type ServiceDocument = Document & {
     category: string;
     description: string;
     servicer: string;
-    price_range: string;
+    priceRange: string;
 };
 
 const serviceSchema = new Schema<ServiceDocument>({
@@ -13,7 +13,7 @@ const serviceSchema = new Schema<ServiceDocument>({
     category: String,
     description: String,
     servicer: String,
-    price_range: String,
+    priceRange: String,
 });
 
 export const Service = model<ServiceDocument>("Service", serviceSchema);

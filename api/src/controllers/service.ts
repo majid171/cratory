@@ -26,7 +26,7 @@ export const addService = async (req: Request, res: Response, next: NextFunction
     newService.category = category;
     newService.description = description;
     newService.servicer = user._id;
-    newService.price_range = priceRange;
+    newService.priceRange = priceRange;
 
     user.services.push(newService);
 
@@ -44,7 +44,7 @@ export const addService = async (req: Request, res: Response, next: NextFunction
 }
 
 export const deleteService = async (req: Request, res: Response) => {
-    await check("service_id", "service_id must not be blank").isLength({ min: 1 }).run(req);
+    await check("_id", "_id must not be blank").isLength({ min: 1 }).run(req);
 
     const errors = validationResult(req);
 
@@ -52,7 +52,7 @@ export const deleteService = async (req: Request, res: Response) => {
         return res.sendStatus(400);
     }
 
-    const serviceId = req.body.service_id;
+    const serviceId = req.body._id;
 
     Service.findById(serviceId, (err: NativeError, service: ServiceDocument) => {
         if (err) {
@@ -84,6 +84,65 @@ export const deleteService = async (req: Request, res: Response) => {
                 }
 
                 return res.json(user);
+            });
+        });
+    });
+}
+
+export const updateService = async (req: Request, res: Response) => {
+    await check("_id", "_id must not be blank").isLength({ min: 1 }).run(req);
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.sendStatus(400);
+    }
+
+    const serviceId = req.body._id;
+
+    Service.findById(serviceId, (err: NativeError, service: ServiceDocument) => {
+        if (err) {
+            return res.sendStatus(500);
+        }
+        if (!service) {
+            return res.sendStatus(404);
+        }
+        const user = req.user as UserDocument;
+
+        User.findById(user._id, async (err: NativeError, user: UserDocument) => {
+            if (err) {
+                return res.sendStatus(500);
+            }
+            if (!user) {
+                return res.sendStatus(404);
+            }
+            if (service.servicer != user._id) {
+                return res.sendStatus(401);
+            }
+
+            const updatedName = req.body.name;
+            const updatedCategory = req.body.category;
+            const updatedDescription = req.body.description;
+            const updatedPriceRange = req.body.price_range;
+
+            service.name = updatedName || service.name;
+            service.category = updatedCategory || service.category;
+            service.description = updatedDescription || service.description;
+            service.priceRange = updatedPriceRange || service.priceRange;
+            
+            service.save(async () => {
+                const indexToUpdate = user.services.findIndex((s) => { return s._id == serviceId });
+                user.services[indexToUpdate] = service;
+                
+                user.markModified("services");
+
+                user.save((err) => {
+                    if(err){
+                        return res.sendStatus(500);
+                    }
+
+                    res.json(user);
+                });
             });
         });
     });

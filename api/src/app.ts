@@ -51,10 +51,6 @@ app.get("/auth/check", passportConfig.isAuthenticated, userController.checkIfAut
 app.post("/auth/signin", userController.signin);
 app.post("/auth/signup", userController.signup);
 
-// Service routes
-app.post("/service", passportConfig.isAuthenticated, serviceController.addService);
-app.delete("/service", passportConfig.isAuthenticated, serviceController.deleteService);
-
 // Google OAuth login
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid", "profile", "email"] }));
 app.get(
@@ -74,5 +70,10 @@ app.get(
         failureRedirect: `${process.env.FRONTEND_URL as string}/signin`,
     })
 );
+
+// Service routes
+app.post("/service", passportConfig.isAuthenticated, serviceController.addService);
+app.delete("/service", passportConfig.isAuthenticated, serviceController.deleteService);
+app.put("/service", passportConfig.isAuthenticated, serviceController.updateService);
 
 export default app;
