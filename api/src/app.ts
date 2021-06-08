@@ -12,7 +12,7 @@ import * as passportConfig from "./config/passport";
 
 // Controllers
 import * as userController from "./controllers/user";
-import * as serviceController from "./controllers/service";
+import * as jobController from "./controllers/job";
 
 const app = express();
 const PORT = API_PORT || 8080;
@@ -71,9 +71,9 @@ app.get(
     })
 );
 
-// Service routes
-app.post("/service", passportConfig.isAuthenticated, serviceController.addService);
-app.delete("/service", passportConfig.isAuthenticated, serviceController.deleteService);
-app.put("/service", passportConfig.isAuthenticated, serviceController.updateService);
+// Job routes
+app.post("/jobs", passportConfig.isAuthenticated, jobController.createJob);
+app.delete("/jobs", passportConfig.isAuthenticated, jobController.deleteJob);
+app.put("/jobs", passportConfig.isAuthenticated, jobController.updateJob);
 
 export default app;

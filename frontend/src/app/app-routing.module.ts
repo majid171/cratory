@@ -7,10 +7,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: "signin", component: LoginComponent },
   { path: "signup", component: SignupComponent },
+  { path: "profile/:username", component: ProfileComponent },
   { path: "", component: HomeComponent, canActivate: [AuthGuardService] },
   { path: "**", component: PageNotFoundComponent }
 ];

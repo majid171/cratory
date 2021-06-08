@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document, model } from "mongoose";
 import bcrypt from "bcrypt-nodejs";
 import { Address, Name } from "../types";
-import {ServiceDocument} from "./service";
 
 type comparePasswordFunction = (
     storedPassword: string,
@@ -11,13 +10,13 @@ type comparePasswordFunction = (
 
 export type UserDocument = Document & {
     name: Name;
-    password: string
+    password: string;
     email: string;
+    username: string;
     phone: string;
     address: Address;
     google: string;
     facebook: string;
-    services: ServiceDocument[];
 
     comparePassword: comparePasswordFunction;
 };
@@ -26,11 +25,11 @@ const userSchema = new Schema<UserDocument>({
     name: { type: Schema.Types.Mixed },
     password: String,
     email: { type: String, unique: true },
+    username: { type: String, unique: true },
     phone: String,
     address: { type: Schema.Types.Mixed },
     google: String,
     facebook: String,
-    services: {type: Schema.Types.Array}
 });
 
 userSchema.pre("save", function save(next) {
@@ -50,6 +49,16 @@ userSchema.pre("save", function save(next) {
             next();
         });
     });
+});
+
+userSchema.pre("save", function save(next) {
+    const user = this as UserDocument;
+    if (!user.isModified("email")) {
+        return next();
+    }
+
+    user.username = user.email.split("@")[0];
+    next();
 });
 
 const comparePassword: comparePasswordFunction = function (storedPassword, candidatePassword, cb) {
