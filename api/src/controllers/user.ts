@@ -26,6 +26,8 @@ export const signin = async (req: Request, res: Response, next: NextFunction) =>
             if (err) {
                 return next(err);
             }
+
+            res.cookie("user", user._id, { httpOnly: true });
             return res.json(user);
         });
     })(req, res, next);
@@ -68,6 +70,8 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
                 if (err) {
                     return next(err);
                 }
+
+                res.cookie("user", user._id, { httpOnly: true });
                 return res.json(user);
             });
         });
@@ -75,6 +79,11 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 export const logout = (req: Request, res: Response) => {
+
+    const user = req.user as UserDocument;
+    res.clearCookie("user");
+    res.cookie("locale", user._id, { httpOnly: true });
+
     req.session.destroy(() => {
         req.logout();
         return res.json("logged out");

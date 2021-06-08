@@ -63,7 +63,7 @@ export const deleteJob = async (req: Request, res: Response) => {
             if (!user) {
                 return res.sendStatus(404);
             }
-            if (job.issuer != user._id) {
+            if (job.issuer.toString() !== user._id.toString()) {
                 return res.sendStatus(401);
             }
 
@@ -100,7 +100,7 @@ export const updateJob = async (req: Request, res: Response) => {
             if (!user) {
                 return res.sendStatus(404);
             }
-            if (job.issuer != user._id) {
+            if (job.issuer.toString() !== user._id.toString()) {
                 return res.sendStatus(401);
             }
 

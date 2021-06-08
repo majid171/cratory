@@ -1,9 +1,9 @@
-import { Document, Schema, model } from "mongoose";
+import { Document, Schema, model, ObjectId } from "mongoose";
 
 export type JobDocument = Document & {
     title: string;
     description: string;
-    issuer: string;
+    issuer: ObjectId;
     price: number;
     skills: string[];
 };
@@ -11,7 +11,7 @@ export type JobDocument = Document & {
 const jobSchema = new Schema<JobDocument>({
     title: String,
     description: String,
-    issuer: String,
+    issuer: Schema.Types.ObjectId,
     price: Number,
     skills: [],
 });
