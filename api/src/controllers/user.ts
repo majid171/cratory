@@ -82,7 +82,7 @@ export const logout = (req: Request, res: Response) => {
 
     const user = req.user as UserDocument;
     res.clearCookie("user");
-    res.cookie("locale", user._id, { httpOnly: true });
+    res.cookie("locale", user._id, { httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000 }); // 1 week
 
     req.session.destroy(() => {
         req.logout();
