@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
+import { JobCardComponent } from './components/job-card/job-card.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     SignupComponent,
     ProfileComponent,
+    JobCardComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,

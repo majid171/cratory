@@ -68,7 +68,7 @@ export const deleteJob = async (req: Request, res: Response) => {
             }
 
             await Job.deleteOne({ _id: job._id });
-            res.sendStatus(200);
+            res.sendStatus(204);
         });
     });
 }

@@ -86,7 +86,7 @@ export const logout = (req: Request, res: Response) => {
 
     req.session.destroy(() => {
         req.logout();
-        return res.json("logged out");
+        return res.sendStatus(204);
     });
 };
 
