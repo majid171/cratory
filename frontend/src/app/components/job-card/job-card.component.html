@@ -1,15 +1,25 @@
-<div class="container">
+<!-- <div class="container" id="container">
     <div class="inner-container">
         <div class="title-container">
             <span class="title">{{title}}</span>
         </div>
         <div class="body-container">
             <div class="left-container">
-                <div class="issuer-container">
-                    <a href="#" class="issuer">{{issuer}}</a>
+                <div class="job-info-container">
+                    <div class="price-container">
+                        <span class="price">${{price}} CAD</span>
+                    </div>
+                    <div class="compressed-date-price-container">
+                        <div class="date-container">
+                            <span class="date">2 days ago</span>
+                        </div>
+                        <div class="issuer-container">
+                            <a href="#" class="issuer">{{issuer}}</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="description-container">
-                    <span class="description">{{description | truncate : 200 : '...' : true}}</span>
+                    <span class="description">{{description | truncate : amountOfWordsToDisplay : '...' : true}}</span>
                 </div>
             </div>
             <div class="right-container">
@@ -26,6 +36,48 @@
                 <div class="skill">
                     {{skill}}
                 </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container" id="container">
+    <div class="inner-container">
+        <div class="left-container">
+            <div class="title-container">
+                <span class="title">{{title}}</span>
+                <span *ngIf="showSmallPrice" class="price-small">${{price}} CAD</span>
+                <span class="location">{{location}}</span>
+            </div>
+            <div class="description-container">
+                <span class="description">{{description | truncate: amountOfWordsToDisplay: '...': true}}</span>
+            </div>
+            <div class="footer-container">
+                <div class="skills-container" *ngFor="let skill of skillsCopy">
+                    <div class="skills-list">
+                        <div class="skill">
+                            {{skill}}
+                        </div>
+                    </div>
+                </div>
+                <span class="additionalSkillsMessage" *ngIf="showCompressedSkills">+ {{numberOfExtraSkills}} more</span>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="price-container">
+                <span class="price-large">${{price}} CAD</span>
+            </div>
+            <div class="job-info-container-large">
+                <div class="poster-container">
+                    <a href="#" class="poster">Majid Joseph</a>
+                </div>
+                <div class="date-container">
+
+                </div>
+                <div class="rating-container">
+                    4/5 Stars
+                </div>
+                <span class="date-large">2 days ago</span>
             </div>
         </div>
     </div>
