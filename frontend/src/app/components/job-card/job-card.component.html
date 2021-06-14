@@ -1,48 +1,5 @@
 <!-- <div class="container" id="container">
     <div class="inner-container">
-        <div class="title-container">
-            <span class="title">{{title}}</span>
-        </div>
-        <div class="body-container">
-            <div class="left-container">
-                <div class="job-info-container">
-                    <div class="price-container">
-                        <span class="price">${{price}} CAD</span>
-                    </div>
-                    <div class="compressed-date-price-container">
-                        <div class="date-container">
-                            <span class="date">2 days ago</span>
-                        </div>
-                        <div class="issuer-container">
-                            <a href="#" class="issuer">{{issuer}}</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="description-container">
-                    <span class="description">{{description | truncate : amountOfWordsToDisplay : '...' : true}}</span>
-                </div>
-            </div>
-            <div class="right-container">
-                <div class="price-container">
-                    <span class="price">${{price}} CAD</span>
-                </div>
-                <div class="date-container">
-                    <span class="date">2 days ago</span>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="skills-container" *ngFor="let skill of skills">
-                <div class="skill">
-                    {{skill}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="container" id="container">
-    <div class="inner-container">
         <div class="left-container">
             <div class="title-container">
                 <span class="title">{{title}}</span>
@@ -81,4 +38,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<mat-card class="container">
+    <mat-card-title class="title">{{title}}</mat-card-title>
+    
+</mat-card>
