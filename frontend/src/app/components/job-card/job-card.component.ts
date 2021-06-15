@@ -13,13 +13,19 @@ export class JobCardComponent implements OnInit {
   @Input() skills: string[];
   @Input() issuer: string;
   @Input() location: string;
+  @Input() date: string;
+  @Input() rating: number;
 
-  amountOfWordsToDisplay: number = 200;
   showCompressedSkills: boolean;
   showSmallPrice: boolean;
   numberOfExtraSkills: number;
   skillsCopy: string[];
-  
+  numberOfFilledStars: number;
+  numberOfEmptyStars: number;
+  hasHalfStar: boolean;
+  starArray: number[] = [1, 2, 3, 4, 5];
+  showRating: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,12 +33,15 @@ export class JobCardComponent implements OnInit {
     this.numberOfExtraSkills = this.skills.length - 2;
     this.canShowCompressedLists();
     this.canShowSmallPrice();
+    this.calculateStarCounts();
+    this.checkIfShowRating();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.canShowCompressedLists();
     this.canShowSmallPrice();
+    this.checkIfShowRating();
   }
 
   canShowCompressedLists(): void {
@@ -40,18 +49,33 @@ export class JobCardComponent implements OnInit {
       this.showCompressedSkills = true;
       this.skillsCopy = this.skillsCopy.slice(0, 2);
     }
-    else{
+    else {
       this.showCompressedSkills = false;
       this.skillsCopy = this.skills;
     }
   }
 
   canShowSmallPrice(): void {
-    if(window.screen.width <= 1024){
+    if (window.screen.width <= 1024) {
       this.showSmallPrice = true;
     }
-    else{
+    else {
       this.showSmallPrice = false;
+    }
+  }
+
+  calculateStarCounts(): void {
+    this.numberOfFilledStars = Math.floor(this.rating);
+    this.numberOfEmptyStars = 5 - Math.ceil(this.rating);
+    this.hasHalfStar = this.rating % 1 !== 0;
+  }
+
+  checkIfShowRating(): void {
+    if (window.screen.width > 200) {
+      this.showRating = true;
+    }
+    else {
+      this.showRating = false;
     }
   }
 }

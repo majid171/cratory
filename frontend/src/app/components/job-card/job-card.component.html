@@ -1,46 +1,49 @@
-<!-- <div class="container" id="container">
-    <div class="inner-container">
-        <div class="left-container">
-            <div class="title-container">
-                <span class="title">{{title}}</span>
-                <span *ngIf="showSmallPrice" class="price-small">${{price}} CAD</span>
-                <span class="location">{{location}}</span>
-            </div>
-            <div class="description-container">
-                <span class="description">{{description | truncate: amountOfWordsToDisplay: '...': true}}</span>
-            </div>
-            <div class="footer-container">
-                <div class="skills-container" *ngFor="let skill of skillsCopy">
-                    <div class="skills-list">
-                        <div class="skill">
-                            {{skill}}
-                        </div>
-                    </div>
-                </div>
-                <span class="additionalSkillsMessage" *ngIf="showCompressedSkills">+ {{numberOfExtraSkills}} more</span>
-            </div>
-        </div>
-        <div class="right-container">
-            <div class="price-container">
-                <span class="price-large">${{price}} CAD</span>
-            </div>
-            <div class="job-info-container-large">
-                <div class="poster-container">
-                    <a href="#" class="poster">Majid Joseph</a>
-                </div>
-                <div class="date-container">
-
-                </div>
-                <div class="rating-container">
-                    4/5 Stars
-                </div>
-                <span class="date-large">2 days ago</span>
+<mat-card class="container">
+    <mat-card-title><a href="#" class="title">{{title}}</a></mat-card-title>
+    <mat-card-subtitle>Posted 2 days ago - {{location}}</mat-card-subtitle>
+    <div *ngIf="showSmallPrice" class="price-container-compressed">
+        <span class="price">${{price}} CAD</span>
+    </div>
+    <div class="body-container">
+        <mat-card-content class="left-container">
+            <p>{{description}}</p>
+        </mat-card-content>
+        <div class="right-container" *ngIf="!showSmallPrice">
+            <span class="price">${{price}} CAD</span>
+            <span><a href="#" class="poster">{{issuer}}</a></span>
+            <div class="issuer-rating">
+                <span *ngFor="let _ of starArray; index as i">
+                    <mat-icon *ngIf="i<numberOfFilledStars" aria-hidden="false" aria-label="rating">star</mat-icon>
+                </span>
+                <span *ngIf="hasHalfStar">
+                    <mat-icon aria-hidden="false" aria-label="rating">star_half</mat-icon>
+                </span>
+                <span *ngFor="let _ of starArray; index as i">
+                    <mat-icon *ngIf="i<numberOfEmptyStars" aria-hidden="false" aria-label="rating">star_border
+                    </mat-icon>
+                </span>
             </div>
         </div>
     </div>
-</div> -->
-
-<mat-card class="container">
-    <mat-card-title class="title">{{title}}</mat-card-title>
-    
+    <mat-card-footer class="footer">
+        <div *ngIf="showSmallPrice" class="poster-information-container-compressed">
+            <span><a class="poster" href="#">{{issuer}}</a></span>
+            <div class="issuer-rating" *ngIf="showRating">
+                <span *ngFor="let _ of starArray; index as i">
+                    <mat-icon *ngIf="i<numberOfFilledStars" aria-hidden="false" aria-label="rating">star</mat-icon>
+                </span>
+                <span *ngIf="hasHalfStar">
+                    <mat-icon aria-hidden="false" aria-label="rating">star_half</mat-icon>
+                </span>
+                <span *ngFor="let _ of starArray; index as i">
+                    <mat-icon *ngIf="i<numberOfEmptyStars" aria-hidden="false" aria-label="rating">star_border
+                    </mat-icon>
+                </span>
+            </div>
+        </div>
+        <div class="skills-container">
+            <mat-chip *ngFor="let skill of skillsCopy" color="warn" class="skill">{{skill}}</mat-chip>
+            <span class="additionalSkillsMessage" *ngIf="showCompressedSkills">+{{numberOfExtraSkills}}</span>
+        </div>
+    </mat-card-footer>
 </mat-card>

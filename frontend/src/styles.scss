@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $cratory-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$cratory-theme: mat-light-theme((
-  color: (
-    primary: $cratory-primary,
-    accent: $cratory-accent,
-    warn: $cratory-warn,
+$cratory-theme: mat-light-theme(
+  (
+    color: (
+      primary: $cratory-primary,
+      accent: $cratory-accent,
+      warn: $cratory-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -34,36 +35,44 @@ $cratory-theme: mat-light-theme((
 @include angular-material-theme($cratory-theme);
 
 /* colour themes */
-$white: #FFFFFF;
-$black: #11151C;
+$white: #ffffff;
+$black: #11151c;
 $blue: #1871c9;
-$dark-blue: #3D5A80;
-$pale: #98C1D9;
-$cyan: #E0FBFC;
-$sienna: #EE6C4D;
+$dark-blue: #3d5a80;
+$pale: #98c1d9;
+$cyan: #e0fbfc;
+$sienna: #ee6c4d;
 $gunmetal: #293241;
 // $text-colour: #6b6b6b;
 $text-colour: #4d525b;
-$card-border-colour: #AAB8C2;
+$card-border-colour: #aab8c2;
 $background-colour: #f2f5f7;
 $error-red: #f44336;
 
 /* App Variables */
 $app-border-radius: 15px;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Arial; color: $text-colour; font: Arial;}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Arial;
+  color: $text-colour;
+  font: Arial;
+}
 
 hr {
   border: 0;
   clear: both;
   display: block;
   width: 90%;
-  background-color: #AAB8C2;
+  background-color: #aab8c2;
   height: 1px;
 }
 
-.app-button{
+.app-button {
   box-shadow: none;
   height: 45px;
   border-radius: 50px;
@@ -76,35 +85,42 @@ hr {
   color: $text-colour;
 }
 
-.primary{
+.primary {
   background-color: $blue;
   color: $white;
   border: 1px solid $gunmetal;
 }
 
-.primary:hover{
+.primary:hover {
   background-color: $gunmetal;
 }
 
-.long{
+.long {
   width: 250px;
 }
 
-.short{
+.short {
   width: 100px;
 }
 
-.o-auth{
+.o-auth {
   background-color: $white;
   border: 2px solid $gunmetal;
   transition: border-width 0.01s linear;
 }
 
-.o-auth:hover{
+.o-auth:hover {
   border-width: 3px;
 }
 
 /* Media Queries */
+
+@mixin very-small-screens {
+  @media (max-width: 200px) {
+    @content;
+  }
+}
+
 @mixin mobile {
   @media (max-width: 480px) {
     @content;
