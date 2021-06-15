@@ -5,7 +5,7 @@
 
 .title {
     text-decoration: none;
-    color: inherit;
+    color: $blue;
 }
 
 .title:hover {
@@ -41,6 +41,7 @@
     text-align: center;
     align-items: center;
     flex-direction: column;
+    white-space: nowrap;
 }
 
 .price {
@@ -84,4 +85,9 @@
     margin-right: 4px;
     font-size: 10px;
     height: 15px;
+}
+
+.material-icons{
+    font-size: 20px !important ;
+    color: $blue;
 }

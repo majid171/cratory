@@ -1,6 +1,6 @@
 <mat-card class="container">
     <mat-card-title><a href="#" class="title">{{title}}</a></mat-card-title>
-    <mat-card-subtitle>Posted 2 days ago - {{location}}</mat-card-subtitle>
+    <mat-card-subtitle>Posted {{date | timeago}} - {{location}}</mat-card-subtitle>
     <div *ngIf="showSmallPrice" class="price-container-compressed">
         <span class="price">${{price}} CAD</span>
     </div>

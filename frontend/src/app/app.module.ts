@@ -19,9 +19,7 @@ import { JobCardComponent } from './components/job-card/job-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomeComponent } from './components/home/home.component';
-
-import { TruncatePipe } from './pipes/truncate.pipe';
-
+import { TimeagoPipe } from './pipes/timeago.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +30,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     SignupComponent,
     ProfileComponent,
     JobCardComponent,
-    TruncatePipe,
+    TimeagoPipe,
   ],
   imports: [
     BrowserModule,
