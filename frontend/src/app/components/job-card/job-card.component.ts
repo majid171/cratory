@@ -9,7 +9,7 @@ export class JobCardComponent implements OnInit {
 
   @Input() title: string;
   @Input() description: string;
-  @Input() price: number;
+  @Input() price: string;
   @Input() skills: string[];
   @Input() issuer: string;
   @Input() location: string;

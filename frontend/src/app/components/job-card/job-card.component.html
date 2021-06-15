@@ -2,14 +2,14 @@
     <mat-card-title><a href="#" class="title">{{title}}</a></mat-card-title>
     <mat-card-subtitle>Posted {{date | timeago}} - {{location}}</mat-card-subtitle>
     <div *ngIf="showSmallPrice" class="price-container-compressed">
-        <span class="price">${{price}} CAD</span>
+        <span class="price">{{price}}</span>
     </div>
     <div class="body-container">
         <mat-card-content class="left-container">
             <p>{{description}}</p>
         </mat-card-content>
         <div class="right-container" *ngIf="!showSmallPrice">
-            <span class="price">${{price}} CAD</span>
+            <span class="price">{{price}}</span>
             <span><a href="#" class="poster">{{issuer}}</a></span>
             <div class="issuer-rating">
                 <span *ngFor="let _ of starArray; index as i">
