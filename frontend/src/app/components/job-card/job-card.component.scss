@@ -1,345 +1,79 @@
 @import "../../../styles.scss";
 
-// .container{
-//     display: flex;
-//     width: 100%;
-//     height: 225px;
-//     border-top: 1px solid #e7e7e7;
-//     border-bottom: 1px solid #e7e7e7;
-
-//     @include mobile {
-//         height: 300px;
-//     }
-// }
-
-// .inner-container{
-//     display: flex;
-//     margin: 25px;
-//     width: 100%;
-//     flex-direction: column;
-//     // background-color: burlywood;
-
-//     @include mobile{
-//     }
-// }
-
-// .title-container{
-//     display: flex;
-//     width: 100%;
-//     height: 40px;
-//     align-items: center;
-//     // background-color: chocolate;
-// }
-
-// .title{
-//     font-size: 16px;
-//     font-weight: 700;
-// }
-
-// .body-container{
-//     display: grid;
-//     grid-template-columns: 8fr 2fr;
-//     height: 100%;
-
-//     @include mobile{
-//         grid-template-columns: unset;
-//         display: flex;
-//         height: 100%;
-//         width: 100%;
-//     }
-
-//     @include tablets{
-//         grid-template-columns: unset;
-//         display: flex;
-//         height: 100%;
-//         width: 100%;
-//     }
-// }
-
-// .left-container{
-//     display: flex;
-//     height: 100%;
-//     flex-direction: column;
-//     margin-right: 30px;
-
-//     @include mobile{
-//         width: 100%;
-//         margin-top: 20px;
-//     }
-// }
-
-// .job-info-container{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;    
-//     margin-top: 5px;
-//     margin-bottom: 7px;
-//     height: 40px;
-//     // background-color: cadetblue;
-
-//     @include tablets {
-//         margin-top: 10px;
-//         height: auto;
-//     }
-// }
-
-// .issuer-container{
-// }
-
-// .issuer{
-//     text-decoration: none;
-//     color: inherit;
-//     font-size: 12px;
-// }
-
-// .compressed-date-price-container{
-//     display: none;
-
-//     @include mobile{
-//         display: unset;
-//         margin-top: 2px;
-//     }
-
-//     @include tablets{
-//         display: unset;
-//         margin-top: 2px;
-//     }
-// }
-
-// .description-container{
-//     width: 100%;
-//     overflow-y: hidden;
-//     height: 100px;
-//     max-height: 80px;
-//     // background-color: yellow;
-
-//     @include mobile{
-//         margin-top: 20px;
-//     }
-
-// }
-
-// .description{
-//     font-size: 14px;
-//     overflow: hidden;
-// }
-
-// .right-container{
-//     margin-top: 10px;
-//     display: flex;
-//     width: 100%;
-//     height: 100%;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
-
-//     @include mobile {
-//         display: none;
-//     }
-
-//     @include tablets {
-//         display: none;
-//     }
-// }
-
-// .price-container{
-//     margin-bottom: 20px;
-
-//     @include mobile{
-//         margin-bottom: unset;
-//     }
-
-//     @include tablets{
-//         margin-bottom: unset;
-//     }
-// }
-
-// .price{
-//     font-size: 25px;
-
-//     @include mobile{
-//         font-size: 22px;
-//     }
-// }
-
-// .date-container{
-// }
-
-// .date{
-//     font-size: 12px;
-// }
-
-// .footer{
-//     display: flex;
-//     width: 100%;
-//     margin-top: 10px;
-//     height: 40px;
-//     // background-color: coral;
-//     align-items: center;
-// }
-
-// .skills-container{
-// }
-
-// .skill{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border: 1px solid #6b6b6b;
-//     width: auto;
-//     padding-left: 7px;
-//     padding-right: 7px;
-//     margin-right: 4px;
-//     font-size: 10px;
-//     height: 15px;
-// }
-
-
-.container{
-    border-top: 1px solid #e7e7e7;
-    padding: 16px;
-    height: 250px;
-    overflow-y: scroll;
+.container {
 }
 
-.container::-webkit-scrollbar {
-    display: none;
-  }
-
-.inner-container{
-    display: grid;
-    grid-template-columns: 0.8fr 0.2fr;
-    width: 100%;
-    height: 100%;
-
-    @include mobile{
-        display: flex;
-        grid-template-columns: unset;
-    }
-
-    @include tablets{
-        display: flex;
-        grid-template-columns: unset;
-    }
-
-    @include small-screens{
-        display: flex;
-        grid-template-columns: unset;
-    }
+.title {
+    text-decoration: none;
+    color: inherit;
 }
 
-.left-container{
+.title:hover {
+    text-decoration: underline;
+}
+
+.body-container {
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-rows: 0.1fr 0.8fr 0.2fr
-}
-
-.right-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-
-    @include mobile{
-        display: none;
-    }
-
-    @include tablets{
-        display: none;
-    }
-
-    @include small-screens{
-        display: none;
-    }
-}
-
-.price-container{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.price-large{
-    font-size: 25px;
-    text-align: center;
-}
-
-.price-small{
+    grid-template-columns: 8fr 2fr;
     margin-top: 10px;
-    font-size: 18px;
 }
 
-.job-info-container-large{
-    display: flex;
-    flex-direction: column;
+.left-container {
     width: 100%;
     height: 100%;
+}
+
+.left-container p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.right-container {
+    padding-left: 10px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.poster-container{
-
+.price {
+    font-size: 25px;
 }
 
-.poster{
+.poster {
     text-decoration: none;
     color: inherit;
     font-size: 12px;
 }
 
-.poster:hover{
+.poster:hover {
     text-decoration: underline;
 }
 
-.title-container{
-    padding: 10px 10px 10px 0px;
+.footer {
     display: flex;
-    justify-content: center;
+    margin: 0px;
     flex-direction: column;
 }
 
-.title{
-    font-size: 16px;
-    font-weight: 700;
+.poster-information-container-compressed {
 }
 
-.location{
-    margin-top: 1px;
-    font-size: 12px;
-}
-
-.description-container{
+.skills-container {
     display: flex;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
+    flex-direction: row;
+    margin-top: 5px;
 }
 
-.description{
-    font-size: 14px;
-    overflow: hidden;
-}
-
-.footer-container{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-
-}
-
-.skills-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.skill{
+.skill,
+.mat-chip {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -350,8 +84,4 @@
     margin-right: 4px;
     font-size: 10px;
     height: 15px;
-}
-
-.additionalSkillsMessage{
-    font-size: 12px;
 }
