@@ -1,63 +1,39 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 .container {
     display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: column;
+    justify-content: center;
     background-color: $background-colour;
-    @include mobile{
-        align-items: center;
-    }
-
-    @include tablets{
-        align-items: center;
-    }
+    align-items: center;
 }
 
-.info-container {
-    margin: 20px;
-    @include mobile{
-        display: none;
-    }
-    @include tablets{
-        display: none;
-    }
-}
-
-.login-card-container {
-    align-self: flex-end;
-    margin-right: 20vw;
+.card-container {
     display: flex;
     width: 20vw;
     max-width: 400px;
     min-width: 300px;
     height: auto;
     align-items: center;
+    background-color: $white;
     flex-direction: column;
     border-radius: $app-border-radius;
-    background-color: $white;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%);
-    justify-content: space-between;
 
     @include mobile{
         border: none;
-        width: 100%;
-        height: auto;
-        align-self: center;
+        width: 95%;
         margin-right: unset;
         box-shadow: unset;
         justify-content: unset;
     }
 
     @include tablets{
-        width: 100%;
-        height: auto;
-        align-self: center;
+        width: 95%;
         margin-right: unset;
         box-shadow: unset;
         justify-content: unset;
-
     }
 }
 
@@ -73,9 +49,6 @@
     }
 }
 
-.title {
-}
-
 .fields-container {
     display: flex;
     align-items: center;
@@ -87,7 +60,7 @@
     margin: 5px;
 }
 
-.login-button-container {
+.button-container {
     display: flex;
     justify-content: center;
 }
@@ -99,7 +72,7 @@
     align-items: center;
 }
 
-.sign-up-container{
+.sign-in-container{
     margin-bottom: 10px;
     font-size: 12px;
 }

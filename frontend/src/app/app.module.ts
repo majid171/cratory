@@ -13,12 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
-import { SignupComponent } from './components/signup/signup.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
-import { LoginComponent } from './components/login/login.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
+import { HomeComponent } from './components/pages/home/home.component';
 import { TimeagoPipe } from './pipes/timeago.pipe';
 
 @NgModule({
