@@ -1,0 +1,104 @@
+@import "../../../styles.scss";
+
+.mat-card{
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0px;
+}
+
+.temp{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background-color: $dark-blue;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-container{
+    display: grid;
+    width: 100%;
+    height: 100%;
+
+    @include large-screens{
+        width: 80%;
+        height: 90%;
+        grid-template-columns: 8fr 2fr;
+    }
+
+    @include small-screens{
+        width: 80%;
+        height: 90%;
+        grid-template-columns: 8fr 2fr;
+    }
+}
+
+.left-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-container{
+    display: none;
+
+    @include large-screens{
+        display: flex;
+        justify-content: flex-end;
+        
+    }
+
+    @include small-screens{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.status-box-compressed{
+    display: flex;
+
+    @include large-screens{
+        display: none;
+    }
+
+    @include small-screens{
+        display: none;
+    }
+}
+
+.status-container {
+    margin-top: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 12px;
+    background-color: white;
+    width: auto;
+}
+
+.title-container {
+    margin-top: 20px;
+    font-size: 25px;
+    color: $white;
+}
+
+.status-open {
+    color: $dark-blue;
+}
+
+.status-other {
+    color: $text-colour;
+}

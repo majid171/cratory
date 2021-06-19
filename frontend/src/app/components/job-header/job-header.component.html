@@ -1,0 +1,19 @@
+<mat-card class="container">
+    <div class="inner-container">
+        <div class="left-container">
+            <div class="status-box-compressed">
+                <div [class]="'status-container ' + getStatusClass()">
+                    <span>{{status}}</span>
+                </div>
+            </div>
+            <div class="title-container">
+                <span>{{title}}</span>
+            </div>
+        </div>
+        <div class="right-container">
+            <div [class]="'status-container ' + getStatusClass()">
+                <span>{{status}}</span>
+            </div>
+        </div>
+    </div>
+</mat-card>

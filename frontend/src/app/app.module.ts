@@ -20,6 +20,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { TimeagoPipe } from './pipes/timeago.pipe';
+import { JobComponent } from './components/pages/job/job.component';
+import { JobHeaderComponent } from './components/job-header/job-header.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { TimeagoPipe } from './pipes/timeago.pipe';
     ProfileComponent,
     JobCardComponent,
     TimeagoPipe,
+    JobComponent,
+    JobHeaderComponent,
   ],
   imports: [
     BrowserModule,

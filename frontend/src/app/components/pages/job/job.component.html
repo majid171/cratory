@@ -1,0 +1,43 @@
+<!-- <div class="container">
+    <div class="body-container">
+        <mat-card class="top-tile-container">
+            <div class="top-tile-left-container">
+                <div class="title-container">
+                    <span class="title">{{title}}</span>
+                </div>
+            </div>
+            <div class="top-tile-right-container">
+                <div [class]="'status-container ' + getStatusClass()">
+                    <span>{{status}}</span>
+                </div>
+            </div>
+        </mat-card>
+        <mat-card class="job-details-tile">
+            <div class="job-details-tile-header">
+                <div class="job-details-tile-header-title-container">
+                    <span>Details</span>
+                </div>
+                <div class="job-details-tile-header-price-container">
+                    <span>{{price}}</span>
+                </div>
+            </div>
+            <div class="job-details-tile-body">
+                <span>{{description}}</span>
+            </div>
+            <div class="job-details-tile-footer">
+                <div class="skills-container">
+                    <mat-chip *ngFor="let skill of skills" class="skill">{{skill}}</mat-chip>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div class="side-info-container">
+        <div class="about-the-poster-container">
+            this is the author about
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <app-job-header [status]="status" [title]="title"></app-job-header>
+</div>

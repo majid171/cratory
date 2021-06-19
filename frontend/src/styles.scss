@@ -140,7 +140,7 @@ hr {
 }
 
 @mixin large-screens {
-  @media (min-width: 1025px) and (max-width: 1200px) {
+  @media (min-width: 1025px){
     @content;
   }
 }
