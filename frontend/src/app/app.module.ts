@@ -23,6 +23,8 @@ import { TimeagoPipe } from './pipes/timeago.pipe';
 import { JobComponent } from './components/pages/job/job.component';
 import { JobHeaderComponent } from './components/job-header/job-header.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
+import { JobAboutIssuerComponent } from './components/job-about-issuer/job-about-issuer.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { JobDetailsComponent } from './components/job-details/job-details.compon
     JobComponent,
     JobHeaderComponent,
     JobDetailsComponent,
+    JobAboutIssuerComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

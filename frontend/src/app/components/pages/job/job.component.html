@@ -1,48 +1,13 @@
-<!-- <div class="container">
-    <div class="body-container">
-        <mat-card class="top-tile-container">
-            <div class="top-tile-left-container">
-                <div class="title-container">
-                    <span class="title">{{title}}</span>
-                </div>
-            </div>
-            <div class="top-tile-right-container">
-                <div [class]="'status-container ' + getStatusClass()">
-                    <span>{{status}}</span>
-                </div>
-            </div>
-        </mat-card>
-        <mat-card class="job-details-tile">
-            <div class="job-details-tile-header">
-                <div class="job-details-tile-header-title-container">
-                    <span>Details</span>
-                </div>
-                <div class="job-details-tile-header-price-container">
-                    <span>{{price}}</span>
-                </div>
-            </div>
-            <div class="job-details-tile-body">
-                <span>{{description}}</span>
-            </div>
-            <div class="job-details-tile-footer">
-                <div class="skills-container">
-                    <mat-chip *ngFor="let skill of skills" class="skill">{{skill}}</mat-chip>
-                </div>
-            </div>
-        </mat-card>
-    </div>
-    <div class="side-info-container">
-        <div class="about-the-poster-container">
-            this is the author about
-        </div>
-    </div>
-</div> -->
-
 <div class="container">
     <app-job-header [status]="status" [title]="title"></app-job-header>
     <div class="inner-container">
-        <app-job-details [price]="price" [description]="description" [skills]="skills" [title]="title"
-            location="Windsor, ON" date="2021-06-09T04:19:48.622+00:00">
-        </app-job-details>
+        <div class=content-container>
+            <app-job-details [price]="price" [description]="description" [skills]="skills" [title]="title"
+                location="Windsor, ON" date="2021-06-09T04:19:48.622+00:00">
+            </app-job-details>
+        </div>
+        <div class="content-side-container">
+            <app-job-about-issuer name="Majid Joseph" rating="3.5" joinDate="2021-06-09T04:19:48.622+00:00" location="Windsor ON, Canada"></app-job-about-issuer>
+        </div>
     </div>
 </div>

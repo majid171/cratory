@@ -1,0 +1,18 @@
+@import "../../../styles.scss";
+
+.app-button {
+    box-shadow: none;
+    background-color: unset;
+    border: unset;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 5px;
+}
+
+.primary {
+    border: 1px solid $card-border-colour;
+    background-color: #0e1724;
+    color: $white;
+}
