@@ -5,11 +5,15 @@
     <div class="body-container">
         <div class="body-content">
             <span class="content-entry">
+                <mat-icon class="content-label" aria-hidden="false" aria-label="rating">person</mat-icon>
+                <span class="content-values">{{name}}</span>
+            </span>
+            <span class="content-entry">
                 <mat-icon class="content-label" aria-hidden="false" aria-label="rating">location_on</mat-icon>
                 <span class="content-values">{{location}}</span>
             </span>
             <span class="content-entry">
-                <mat-icon class="content-label" aria-hidden="false" aria-label="rating">person</mat-icon>
+                <mat-icon class="content-label" aria-hidden="false" aria-label="rating">reviews</mat-icon>
                 <span *ngFor="let _ of starArray; index as i">
                     <mat-icon *ngIf="i<numberOfFilledStars" aria-hidden="false" aria-label="rating">star</mat-icon>
                 </span>
@@ -23,7 +27,7 @@
             </span>
             <span class="content-entry">
                 <mat-icon class="content-label" aria-hidden="false" aria-label="rating">event</mat-icon>
-                <span class="content-values">{{joinDate | timeago}}</span>
+                <span class="content-values">Joined {{joinDate | timeago}}</span>
             </span>
         </div>
         <div class="button-container">

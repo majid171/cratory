@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class JobAboutIssuerComponent implements OnInit {
 
-  @Input() name: string;
+  @Input() name: string = "Majid Joseph";
   @Input() location: string;
   @Input() rating: number;
   @Input() joinDate: string;
