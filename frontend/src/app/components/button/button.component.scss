@@ -5,13 +5,58 @@
     background-color: unset;
     border: unset;
     border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
 }
 
-.secondary{
+.primary{
+    color: $white;
+    background-color: $dark-blue;
+    padding: 15px;
+}
+
+.primary:hover{
+    background-color: $dark-blue-accent;
+}
+
+.primary-stroked{
+    color: $dark-blue;
+    background-color: $white;
+    padding: 15px;
+    border: 2px solid $dark-blue;
+}
+
+.primary-stroked:hover{
+    background-color: $dark-blue;
+    color: $white;
+}
+
+.secondary-stroked{
     color: #0e1724;
     border: 2px solid #0e1724;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left:  9px;
     padding-right: 9px;
+}
+
+.secondary-stroked:hover{
+    color: $white;
+    background-color: $darkest-blue;
+}
+
+.accent{
+
+}
+
+.accent-stroked{
+
+}
+
+.warn{
+
+}
+
+.warn-stroked{
+    
 }
