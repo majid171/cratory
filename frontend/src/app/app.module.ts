@@ -25,6 +25,7 @@ import { JobHeaderComponent } from './components/job-header/job-header.component
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { JobAboutIssuerComponent } from './components/job-about-issuer/job-about-issuer.component';
 import { ButtonComponent } from './components/button/button.component';
+import { JobBidComponent } from './components/job-bid/job-bid.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ButtonComponent } from './components/button/button.component';
     JobDetailsComponent,
     JobAboutIssuerComponent,
     ButtonComponent,
+    JobBidComponent,
   ],
   imports: [
     BrowserModule,

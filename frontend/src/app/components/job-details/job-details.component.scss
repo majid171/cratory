@@ -15,11 +15,14 @@
 }
 
 .header-title-container {
-    display: grid;
-    color: $text-colour;
+    display: flex;
+    color: $darkest-blue;
     height: 100%;
     width: 100%;
-    align-items: center;
+    font-weight: 700;
+    line-height: 1.4;;
+    font-size: 20px;
+    align-items: flex-end;
 }
 
 .header-info-container {
@@ -43,8 +46,6 @@
 
 .title {
     display: none;
-    margin-bottom: 10px;
-    font-size: 20px;
 
     @include mobile {
         display: unset;
@@ -61,7 +62,6 @@
 
 .default-title {
     display: none;
-    font-size: 25px;
 
     @include large-screens {
         display: unset;

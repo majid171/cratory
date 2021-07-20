@@ -4,15 +4,14 @@
     box-shadow: none;
     background-color: unset;
     border: unset;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 11px;
-    padding-right: 11px;
     border-radius: 5px;
 }
 
-.primary {
-    border: 1px solid $card-border-colour;
-    background-color: #0e1724;
-    color: $white;
+.secondary{
+    color: #0e1724;
+    border: 2px solid #0e1724;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left:  9px;
+    padding-right: 9px;
 }
