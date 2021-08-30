@@ -1,0 +1,56 @@
+@import "../../../styles.scss";
+
+.header-container{
+    display: flex;
+    height: 4vh;
+    background-color: $dark-blue;
+    color: $white;
+    column-gap: 30px;
+    padding: 20px;
+}
+
+.logo-container{
+    display: flex;
+    user-select: none;
+    // background-color: khaki;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    // font-weight: 800;
+    font-size: 40px;
+}
+
+.right-container{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    column-gap: 75px;
+    // background-color: lavender;
+}
+
+.links-container{
+    display: flex;
+    // justify-content: space-between;
+    // background-color: khaki;
+    width: 75px;
+}
+
+.material-icons{
+    font-size: 28px !important ;
+}
+
+.link{
+    margin-left: 20px;
+}
+
+.profile-container{
+    display: flex;
+}
+
+.account-name{
+    display: flex;
+    padding-right: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
